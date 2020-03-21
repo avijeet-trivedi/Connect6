@@ -10,7 +10,7 @@
  This file is an integration of Connect6_2020, TA_Optimisation, Dynamic_board_optimisation,
  TA_Optimisation4 & C6_TranspostionTable
  
- Following Techniques are used in this AI :
+ Following Techniques are used in this Game Solver :
     1. Alpha-Beta with Memory using Transpositon Table and Zobrist Hashing
     2. Node Ordering
     3. Use of relevant board selection in thread_finder function
@@ -61,10 +61,7 @@
  Note : For the top most node, all the nodes are ordered
  *******************************************************************************************/
 
-
-
 #include "var_declarations.h"
-#include "transposition_table.h"
 #include "print_board.h"
 #include "evaluate.h"
 #include "threat_finder.h"
@@ -79,6 +76,7 @@
 #endif
 
 #if(TT==1)
+#include "transposition_table.h"
 #include "AlphaBetaWithMemory.h"
 #else
 #include "AlphaBeta.h"
