@@ -1,7 +1,7 @@
-# Connect6 Solver: A Novel Hardware-Software Co-Design Approach
+# Connect6 Game Solver: A Novel Hardware-Software Co-Design Approach
 
 ## Overview
-Welcome to the Connect6 Solver project! This project is a culmination of innovative research in the realms of Hardware-Software Co-design and Game Theory, presenting an novel solution for the classic Connect6 game.
+Welcome to the Connect6 Solver project! This project is a amalgamation of Hardware-Software Co-design and Game Theory, presenting a novel solution for the classic Connect6 game.
 
 ## Key Features
 
