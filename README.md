@@ -39,9 +39,9 @@ Realized a substantial 50% overall enhancement compared to the existing prevalen
 ### 3. Speed Gains Compared to Complete Software Model:
 Demonstrated a significant 4x speed improvement over a complete software model, particularly on the Xilinx Zedboard SOC.
 
-
 ## Publication
 This work is under review at "e-Prime - Advances in Electrical Engineering, Electronics and Energy"
+![Submission Proof](https://github.com/avijeet-trivedi/Connect6/assets/59733259/1ad354b5-4f5c-44ad-88cb-6f950cf27a3e)
 
 ## Reference model
 Our Reference model was develop from the below paper:  
