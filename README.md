@@ -6,7 +6,7 @@ Welcome to the Connect6 Solver project! This project is a amalgamation of Hardwa
 ## Key Features
 
 ### 1. Novel Data Communication Technique
-In the pursuit of efficiency, Connect6 Solver introduces a pioneering data communication technique. By minimizing the bits transferred between hardware and software, we significantly reduce communication overhead, enhancing overall performance.
+In the pursuit of improving performance from our reference model, we proposed a novel data communication technique by minimizing the bits transferred between hardware and software, we significantly reduce communication overhead, enhancing overall performance. In short, instead of sending the complete board every time at depth N (maximum depth) of the tree search, we send the complete board at depth N-1 and when the program reaches depth N, it just sends the move to the hardware accelerator and in the hardware the complete board is generated.
 
 ### 2. Advanced Tree-Searching Algorithms
 To elevate the strategic aspect of the game, Connect6 Solver incorporates a suite of advanced tree-searching algorithms. Key optimizations include:
@@ -19,9 +19,9 @@ To elevate the strategic aspect of the game, Connect6 Solver incorporates a suit
 ## Directory Structure
 
 The directory contains 3 sub-directories:
-1. connect6_sw - contains complete software game solver
-2. connect6_lite - contains hardware-software game solver that uses AXI-Lite interface for communication
-3. connect6_stream - contains hardware-software game solver that uses AXI-Stream interface for communication
+1. **connect6_sw** - contains complete software game solver
+2. **connect6_lite** - contains hardware-software game solver that uses AXI-Lite interface for communication
+3. **connect6_stream** - contains hardware-software game solver that uses AXI-Stream interface for communication
 
 ## Results
 ### 1. Efficiency Gains in Communication Overhead:
