@@ -16,21 +16,13 @@ To elevate the strategic aspect of the game, Connect6 Solver incorporates a suit
   - Node Ordering: A strategic arrangement of nodes during search to expedite optimal move discovery.
   - Memoization: Caching computed results to avoid redundant computations, speeding up the decision process.
 
-## Installation
+## Directory Structure
 
-Provide clear instructions on how to install your Connect6 project. Include any dependencies and steps users need to follow.
+The directory contains 3 sub-directories:
+1. connect6_sw - contains complete software game solver
+2. connect6_lite - contains hardware-software game solver that uses AXI-Lite interface for communication
+3. connect6_stream - contains hardware-software game solver that uses AXI-Stream interface for communication
 
-```bash
-# Clone the repository
-git clone https://github.com/avijeet-trivedi/Connect6.git
-
-# Navigate to the project directory
-cd Connect6
-
-# Install Vivado HLx 2018.3
-https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive.html
-
-```
 ## Results
 ### 1. Efficiency Gains in Communication Overhead:
 Achieved a remarkable 92% reduction in communication overhead.
@@ -40,7 +32,7 @@ Realized a substantial 50% overall enhancement compared to the existing prevalen
 Demonstrated a significant 4x speed improvement over a complete software model, particularly on the Xilinx Zedboard SOC.
 
 ## Publication
-This work is under review at "e-Prime - Advances in Electrical Engineering, Electronics and Energy"
+This work is under review at "e-Prime - Advances in Electrical Engineering, Electronics and Energy", an Elsevier Journal.
 ![Submission Proof](https://github.com/avijeet-trivedi/Connect6/assets/59733259/1ad354b5-4f5c-44ad-88cb-6f950cf27a3e)
 
 ## Reference model
