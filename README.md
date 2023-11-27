@@ -36,7 +36,7 @@ This work is under review at "e-Prime - Advances in Electrical Engineering, Elec
 ![Submission Proof](https://github.com/avijeet-trivedi/Connect6/assets/59733259/1ad354b5-4f5c-44ad-88cb-6f950cf27a3e)
 
 ## Reference model
-Our Reference model was develop from the below paper:  
+Our Reference model was developed from the below paper:  
 J. Olivito, J. Resano and J. L. Briz, "Accelerating Board Games Through Hardware/Software Codesign," in IEEE Transactions on Computational Intelligence and AI in Games, vol. 9, no. 4, pp. 393-401, Dec. 2017, doi: 10.1109/TCIAIG.2016.2604923.
 
 
