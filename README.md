@@ -3,6 +3,26 @@
 ## Overview
 Welcome to the Connect6 Solver project! This project is a amalgamation of Hardware-Software Co-design and Game Theory, presenting a novel solution for the classic Connect6 game.
 
+## Architecure 
+### 1. Complete Software Game Solver
+The complete software Game Solver is crafted entirely in C++. The code incorporates self-play functionality, allowing the Game Solver to engage in strategic battles against itself. The program boasts support for various tree searching algorithms, including MinMax, AlphaBeta, AlphaBeta with [Memoization](https://en.wikipedia.org/wiki/Memoization), NegaMax, NegaMax with Memoization, and [NegaScout](https://www.chessprogramming.org/NegaScout). Users have the flexibility to fine-tune parameters such as node ordering, tree search depth, relevant board truncation, number of child nodes, and more. For additional details on configuration options, please refer to the documentation provided in [connect6_sw](connect6_sw) directory.
+ 
+### 2. Hardware Software Game Solver
+The Hardware-Software Co-design of the Game Solver is developed on the Xilinx ZedBoard SOC, leveraging Vivado HLx and the SDK tool. 
+The solver algorithm is partitioned, with the board evaluator implemented on the FPGA and the tree search executed on the ARM Cortex-A9 processor. 
+The board evaluater is taken to the hardware partition to leverage the scope of parallelism in evaluating the board, which will reduce the time for finding the best move. 
+Furthermore, on time profiling it was found that this functiin take the maximum percentage time spent by the program. 
+
+For communication between the hardware and software partitions, two protocols were used:
+1. AXI-Lite - A memory-mapped protocol used for communication between a master and a slave.
+2. AXI-Stream - A protocol designed for high-throughput, unidirectional streaming of data between a master and a slave.
+
+In our initial reference model, we employed the AXI Stream protocol to transfer the entire board to the FPGA for evaluation each time a leaf node was reached during the program execution. However, in our optimized communication model, we have streamlined the process. Now, we send the complete board to the FPGA when reaching a node one level above the leaf node, utilizing a combination of AXI Lite and AXI Stream protocols. This allows for a more efficient data transfer strategy.
+
+Upon reaching the leaf node, we transmit only the move using AXI Lite, as this protocol is more lightweight for transmitting move data with fewer bits. Leveraging the board already stored in the hardware, the FPGA then reconstructs the complete board using the received move. Subsequently, the evaluation is performed, and the threat counts are communicated back to the software using AXI Lite. This refined communication scheme has resulted in a significant reduction in communication overhead, leading to a notable improvement in the speed and efficiency of the game solver.
+
+The codesign code of the model that employes lite for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_lite) directory and the one that employes stream for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_stream) directory.
+
 ## Key Features
 
 ### 1. Novel Data Communication Technique
@@ -15,13 +35,6 @@ To elevate the strategic aspect of the game, Connect6 Solver incorporates a suit
   - Iterative Deepening: Enhancing search depth progressively for improved decision-making.
   - Node Ordering: A strategic arrangement of nodes during search to expedite optimal move discovery.
   - Memoization: Caching computed results to avoid redundant computations, speeding up the decision process.
-
-## Directory Structure
-
-The directory contains 3 sub-directories:
-1. **connect6_sw** - contains complete software game solver
-2. **connect6_lite** - contains hardware-software game solver that uses AXI-Lite interface for communication
-3. **connect6_stream** - contains hardware-software game solver that uses AXI-Stream interface for communication
 
 ## Results
 ### 1. Efficiency Gains in Communication Overhead:
@@ -39,6 +52,8 @@ This work is under review at "e-Prime - Advances in Electrical Engineering, Elec
 Our Reference model was developed from the below paper:  
 J. Olivito, J. Resano and J. L. Briz, "Accelerating Board Games Through Hardware/Software Codesign," in IEEE Transactions on Computational Intelligence and AI in Games, vol. 9, no. 4, pp. 393-401, Dec. 2017, doi: 10.1109/TCIAIG.2016.2604923.
 
+## Note
+For more details, aboout this project and implementation please reach out to me.
 
 
 
