@@ -21,7 +21,7 @@ In our initial reference model, we employed the AXI Stream protocol to transfer 
 
 Upon reaching the leaf node, we transmit only the move using AXI Lite, as this protocol is more lightweight for transmitting move data with fewer bits. Leveraging the board already stored in the hardware, the FPGA then reconstructs the complete board using the received move. Subsequently, the evaluation is performed, and the threat counts are communicated back to the software using AXI Lite. This refined communication scheme has resulted in a significant reduction in communication overhead, leading to a notable improvement in the speed and efficiency of the game solver.
 
-The codesign code of the model that employs lite for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_lite) directory and the one that employs stream for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_stream) directory.
+The codesign code of the model that employs lite for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_lite) directory and the one that employs stream for transmitting the board one level above the leaf node is present in [connect6_stream](connect6_stream) directory.
 
 ## Key Features
 
