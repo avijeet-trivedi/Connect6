@@ -2,6 +2,8 @@
 
 ## Overview
 Welcome to the Connect6 Solver project! This project is a amalgamation of Hardware-Software Co-design and Game Theory, presenting a novel solution for the classic Connect6 game.
+This work is under review at "e-Prime - Advances in Electrical Engineering, Electronics and Energy", an Elsevier Journal.
+![Submission Proof](https://github.com/avijeet-trivedi/Connect6/assets/59733259/1ad354b5-4f5c-44ad-88cb-6f950cf27a3e)
 
 ## Architecture 
 ### 1. Complete Software Game Solver
@@ -17,11 +19,16 @@ For communication between the hardware and software partitions, two protocols we
 1. AXI-Lite - A memory-mapped protocol used for communication between a master and a slave.
 2. AXI-Stream - A protocol designed for high-throughput, unidirectional streaming of data between a master and a slave.
 
-In our initial reference model, we employed the AXI Stream protocol to transfer the entire board to the FPGA for evaluation each time a leaf node was reached during the program execution. However, in our optimized communication model, we have streamlined the process. Now, we send the complete board to the FPGA when reaching a node one level above the leaf node, utilizing a combination of AXI Lite and AXI Stream protocols. This allows for a more efficient data transfer strategy.
+In our initial reference model, we employed the AXI Stream protocol to transfer the entire board to the FPGA for evaluation each time a leaf node was reached during the program execution. The following diagram shows the reference model architecture:
+![Communication Model S](https://github.com/avijeet-trivedi/Connect6/assets/59733259/5aa0f430-451c-45c9-836f-aa4b49892605)
 
-Upon reaching the leaf node, we transmit only the move using AXI Lite, as this protocol is more lightweight for transmitting move data with fewer bits. Leveraging the board already stored in the hardware, the FPGA then reconstructs the complete board using the received move. Subsequently, the evaluation is performed, and the threat counts are communicated back to the software using AXI Lite. This refined communication scheme has resulted in a significant reduction in communication overhead, leading to a notable improvement in the speed and efficiency of the game solver.
+However, in our optimized communication model, we have streamlined the process. Now, we send the complete board to the FPGA when reaching a node one level above the leaf node, utilizing a combination of AXI Lite and AXI Stream protocols. This allows for a more efficient data transfer strategy. Upon reaching the leaf node, we transmit only the move using AXI Lite, as this protocol is more lightweight for transmitting move data with fewer bits. Leveraging the board already stored in the hardware, the FPGA then reconstructs the complete board using the received move. Subsequently, the evaluation is performed, and the threat counts are communicated back to the software using AXI Lite. This refined communication scheme has resulted in a significant reduction in communication overhead, leading to a notable improvement in the speed and efficiency of the game solver.
 
-The codesign code of the model that employs lite for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_lite) directory and the one that employs stream for transmitting the board one level above the leaf node is present in [connect6_stream](connect6_stream) directory.
+The codesign code of the model that employs AXI-Lite for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_lite) directory and the architecture for the same is shown below.
+![Communication Model LU](https://github.com/avijeet-trivedi/Connect6/assets/59733259/136b7c24-c8ca-4ba3-ac60-cb77a448e26e)
+
+The codesign code of the model that employs AXI-Stream for transmitting the board one level above the leaf node is present in [connect6_stream](connect6_stream) directory and the architecture for the same is shown below.
+![Communication Model SU](https://github.com/avijeet-trivedi/Connect6/assets/59733259/2c01157e-0f94-466b-8408-92d46cc6609a)
 
 ## Key Features
 
@@ -43,10 +50,6 @@ Achieved a remarkable 92% reduction in communication overhead.
 Realized a substantial 50% overall enhancement compared to the existing prevalent hardware-software codesign model.
 ### 3. Speed Gains Compared to Complete Software Model:
 Demonstrated a significant 4x speed improvement over a complete software model, particularly on the Xilinx Zedboard SOC.
-
-## Publication
-This work is under review at "e-Prime - Advances in Electrical Engineering, Electronics and Energy", an Elsevier Journal.
-![Submission Proof](https://github.com/avijeet-trivedi/Connect6/assets/59733259/1ad354b5-4f5c-44ad-88cb-6f950cf27a3e)
 
 ## Reference model
 Our Reference model was developed from the below paper:  
