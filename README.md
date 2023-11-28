@@ -21,7 +21,7 @@ In our initial reference model, we employed the AXI Stream protocol to transfer 
 
 Upon reaching the leaf node, we transmit only the move using AXI Lite, as this protocol is more lightweight for transmitting move data with fewer bits. Leveraging the board already stored in the hardware, the FPGA then reconstructs the complete board using the received move. Subsequently, the evaluation is performed, and the threat counts are communicated back to the software using AXI Lite. This refined communication scheme has resulted in a significant reduction in communication overhead, leading to a notable improvement in the speed and efficiency of the game solver.
 
-The codesign code of the model that employes lite for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_lite) directory and the one that employes stream for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_stream) directory.
+The codesign code of the model that employs lite for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_lite) directory and the one that employs stream for transmitting the board one level above the leaf node is present in [connect6_lite](connect6_stream) directory.
 
 ## Key Features
 
@@ -53,7 +53,7 @@ Our Reference model was developed from the below paper:
 J. Olivito, J. Resano and J. L. Briz, "Accelerating Board Games Through Hardware/Software Codesign," in IEEE Transactions on Computational Intelligence and AI in Games, vol. 9, no. 4, pp. 393-401, Dec. 2017, doi: 10.1109/TCIAIG.2016.2604923.
 
 ## Note
-For more details, aboout this project and implementation please reach out to me.
+For additional information regarding the project and its implementation, please feel free to contact me via email at avijeet.trivedi@gmail.com. I would be happy to provide further details and address any inquiries you may have. Looking forward to discussing the project with you.
 
 
 
