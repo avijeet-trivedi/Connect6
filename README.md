@@ -3,7 +3,7 @@
 ## Overview
 Welcome to the Connect6 Solver project! This project is a amalgamation of Hardware-Software Co-design and Game Theory, presenting a novel solution for the classic Connect6 game.
 
-## Architecure 
+## Architecture 
 ### 1. Complete Software Game Solver
 The complete software Game Solver is crafted entirely in C++. The code incorporates self-play functionality, allowing the Game Solver to engage in strategic battles against itself. The program boasts support for various tree searching algorithms, including MinMax, AlphaBeta, AlphaBeta with [Memoization](https://en.wikipedia.org/wiki/Memoization), NegaMax, NegaMax with Memoization, and [NegaScout](https://www.chessprogramming.org/NegaScout). Users have the flexibility to fine-tune parameters such as node ordering, tree search depth, relevant board truncation, number of child nodes, and more. For additional details on configuration options, please refer to the documentation provided in [connect6_sw](connect6_sw) directory.
  
