@@ -2,9 +2,9 @@
 
 ## Overview
 Welcome to the Connect6 Solver project! This project is a amalgamation of Hardware-Software Co-design and Game Theory, presenting a novel solution for the classic Connect6 game.
-This paper is accepted and will appear in "e-Prime - Advances in Electrical Engineering, Electronics and Energy", an Elsevier Journal.
+This detailed description of this work is published in the form of a research paper in "e-Prime - Advances in Electrical Engineering, Electronics and Energy", an Elsevier Journal.
 
-Avijeet Kumar Trivedi , Shubham Garg , Neeta Pandey , Novel Hardware/Software Co-Design Approach for Connect6 Game-Solver, e-Prime - Advances in Electrical Engineering, Electronics and Energy (2023), doi: [https://doi.org/10.1016/j.prime.2023.100395](https://doi.org/10.1016/j.prime.2023.100395)
+A. K. Trivedi, S. Garg, and N. Pandey, “Novel hardware/software co-design approach for Connect6 game-solver,” e-Prime - Advances in Electrical Engineering, Electronics and Energy, vol. 7, p. 100395, Mar. 2024, doi: [https://doi.org/10.1016/j.prime.2023.100395](https://doi.org/10.1016/j.prime.2023.100395)
 
 
 
